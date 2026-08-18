@@ -145,7 +145,7 @@ export function FeaturedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_EARLY}
-          variants={staggerContainer(0.1, 0.1)}
+          variants={staggerContainer(0.06, 0.06)}
           className="mt-7 space-y-3"
         >
           {featuredProject.architecture.map((layer, index) => (
@@ -159,7 +159,7 @@ export function FeaturedProject() {
                   transition: { duration: DURATION.base, ease: EASE_OUT_EXPO },
                 },
               }}
-              className="group relative overflow-hidden rounded-2xl border border-line bg-surface/50 p-5 transition-colors duration-500 hover:border-line-strong sm:p-6"
+              className="group relative overflow-hidden rounded-2xl border border-line bg-surface/50 p-5 transition-colors duration-300 hover:border-line-strong sm:p-6"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                 <div className="flex items-center gap-3 sm:w-56 sm:shrink-0">
@@ -212,7 +212,7 @@ export function FeaturedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_EARLY}
-          variants={staggerContainer(0.07, 0.08)}
+          variants={staggerContainer(0.045, 0.05)}
           className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
         >
           {featuredProject.featureGroups.map((group) => (
@@ -226,7 +226,7 @@ export function FeaturedProject() {
                   transition: { duration: DURATION.base, ease: EASE_OUT_EXPO },
                 },
               }}
-              className="group rounded-2xl border border-line bg-surface/50 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-line-strong hover:bg-surface/80"
+              className="group rounded-2xl border border-line bg-surface/50 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong hover:bg-surface/80"
             >
               <div className="flex items-center gap-2.5">
                 <span className="grid h-9 w-9 place-items-center rounded-lg border border-line bg-bg/70 text-fg-muted transition-colors duration-300 group-hover:border-accent/50 group-hover:text-accent">

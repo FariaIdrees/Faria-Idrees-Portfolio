@@ -78,14 +78,14 @@ export function Hero() {
 
         <motion.div
           style={{ x: orbAX, y: orbAY }}
-          className="animate-float-slow absolute -top-32 left-[8%] h-[26rem] w-[26rem] rounded-full blur-[110px]"
+          className="animate-float-slow absolute -top-32 left-[8%] h-[26rem] w-[26rem] rounded-full blur-[78px]"
         >
           <div className="h-full w-full rounded-full bg-[var(--glow-a)]" />
         </motion.div>
 
         <motion.div
           style={{ x: orbBX, y: orbBY }}
-          className="animate-drift absolute -right-24 top-1/3 h-[22rem] w-[22rem] rounded-full blur-[120px]"
+          className="animate-drift absolute -right-24 top-1/3 h-[22rem] w-[22rem] rounded-full blur-[84px]"
         >
           <div className="h-full w-full rounded-full bg-[var(--glow-b)]" />
         </motion.div>
@@ -103,7 +103,7 @@ export function Hero() {
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.09 } } }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.05 } } }}
           >
             <motion.div variants={enter} className="mb-6 flex">
               <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/60 py-1.5 pl-2.5 pr-4 text-xs text-fg-muted backdrop-blur-sm">
@@ -116,7 +116,7 @@ export function Hero() {
             </motion.div>
 
             <h1 className="text-[clamp(2.5rem,9vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-fg">
-              <TextReveal text={site.name} immediate stagger={0.07} delay={0.15} />
+              <TextReveal text={site.name} immediate stagger={0.045} delay={0.06} />
             </h1>
 
             <motion.p
@@ -184,7 +184,7 @@ export function Hero() {
           style={interactive ? { x: panelX, y: panelY } : undefined}
           initial={{ opacity: 0, y: 36, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 0.45 }}
+          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 0.22 }}
           className="relative lg:col-span-5"
         >
           <CodePanel />
@@ -199,7 +199,7 @@ export function Hero() {
                 transition={{
                   duration: DURATION.base,
                   ease: EASE_OUT_EXPO,
-                  delay: 1.25 + index * 0.06,
+                  delay: 0.62 + index * 0.035,
                 }}
                 className={cn(
                   "rounded-full border border-line bg-surface/70 px-3 py-1.5 font-mono text-[0.7rem]",
@@ -216,7 +216,7 @@ export function Hero() {
         <motion.dl
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 1.05 }}
+          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 0.5 }}
           className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 lg:col-span-12 lg:mt-14"
         >
           {heroHighlights.map((highlight) => (
@@ -234,7 +234,7 @@ export function Hero() {
         href="#about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 0.6 }}
+        transition={{ delay: 0.85, duration: 0.4 }}
         aria-label="Scroll to the About section"
         className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 items-center gap-2 py-2 text-xs text-fg-subtle transition-colors hover:text-accent lg:inline-flex"
       >

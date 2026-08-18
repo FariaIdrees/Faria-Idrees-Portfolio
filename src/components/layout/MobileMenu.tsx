@@ -20,25 +20,25 @@ const panel = {
   visible: {
     opacity: 1,
     clipPath: "inset(0% 0% 0% 0%)",
-    transition: { duration: 0.5, ease: EASE_OUT_EXPO, when: "beforeChildren" as const },
+    transition: { duration: 0.3, ease: EASE_OUT_EXPO, when: "beforeChildren" as const },
   },
   exit: {
     opacity: 0,
     clipPath: "inset(0% 0% 100% 0%)",
-    transition: { duration: 0.35, ease: EASE_OUT_EXPO, when: "afterChildren" as const },
+    transition: { duration: 0.22, ease: EASE_OUT_EXPO, when: "afterChildren" as const },
   },
 };
 
 const list = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.055, delayChildren: 0.08 } },
-  exit: { transition: { staggerChildren: 0.03, staggerDirection: -1 } },
+  visible: { transition: { staggerChildren: 0.035, delayChildren: 0.05 } },
+  exit: { transition: { staggerChildren: 0.02, staggerDirection: -1 } },
 };
 
 const item = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE_OUT_EXPO } },
-  exit: { opacity: 0, y: 12, transition: { duration: 0.2 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: EASE_OUT_EXPO } },
+  exit: { opacity: 0, y: 12, transition: { duration: 0.15 } },
 };
 
 /**
@@ -121,7 +121,7 @@ export function MobileMenu({ open, activeId, onClose, onNavigate }: MobileMenuPr
               onClick={onClose}
               aria-label="Close navigation menu"
               initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1, transition: { delay: 0.12 } }}
+              animate={{ rotate: 0, opacity: 1, transition: { delay: 0.06 } }}
               exit={{ rotate: 90, opacity: 0 }}
               whileTap={{ scale: 0.92 }}
               className="grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/70 text-fg"

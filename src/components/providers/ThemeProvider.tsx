@@ -4,8 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
-  useRef,
   useSyncExternalStore,
 } from "react";
 
@@ -55,22 +53,14 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const toggleTheme = useCallback(() => {
     const root = document.documentElement;
     const next: Theme = root.classList.contains("dark") ? "light" : "dark";
 
-    // Colour transitions are switched on only for the swap itself, so they
-    // never sit on every element during scroll or hover.
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      root.classList.add("theme-transition");
-      if (timeout.current) clearTimeout(timeout.current);
-      timeout.current = setTimeout(() => {
-        root.classList.remove("theme-transition");
-      }, 420);
-    }
-
+    // The swap itself is instant. A cross-fade here would mean attaching a
+    // transition to every node on a very long page, which costs far more than
+    // it buys — the palette change reads better as a clean cut.
     root.classList.toggle("dark", next === "dark");
     root.style.colorScheme = next;
 
@@ -79,12 +69,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } catch {
       /* storage can be unavailable — the toggle still works for the session */
     }
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      if (timeout.current) clearTimeout(timeout.current);
-    };
   }, []);
 
   return (

@@ -56,14 +56,14 @@ export function TimelineEntry({ item }: { item: TimelineItem }) {
         transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO }}
         aria-hidden="true"
         className={cn(
-          "absolute left-0 top-1 grid h-10 w-10 place-items-center rounded-full border bg-bg transition-colors duration-500 sm:h-12 sm:w-12",
+          "absolute left-0 top-1 grid h-10 w-10 place-items-center rounded-full border bg-bg transition-colors duration-300 sm:h-12 sm:w-12",
           active ? "border-accent text-accent" : "border-line text-fg-subtle",
         )}
       >
         <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" strokeWidth={1.75} />
         <span
           className={cn(
-            "absolute inset-0 rounded-full transition-opacity duration-700",
+            "absolute inset-0 rounded-full transition-opacity duration-300",
             active ? "opacity-100" : "opacity-0",
           )}
           style={{ boxShadow: "0 0 0 6px var(--accent-soft)" }}
@@ -76,7 +76,7 @@ export function TimelineEntry({ item }: { item: TimelineItem }) {
         viewport={VIEWPORT_EARLY}
         transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO }}
         className={cn(
-          "rounded-2xl border bg-surface/50 p-5 backdrop-blur-sm transition-colors duration-500 sm:p-7",
+          "rounded-2xl border bg-surface/50 p-5 backdrop-blur-sm transition-colors duration-300 sm:p-7",
           active ? "border-line-strong" : "border-line",
         )}
       >
@@ -106,7 +106,7 @@ export function TimelineEntry({ item }: { item: TimelineItem }) {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_EARLY}
-          variants={staggerContainer(0.06, 0.15)}
+          variants={staggerContainer(0.04, 0.08)}
           className="mt-6 grid gap-2.5 sm:grid-cols-2"
         >
           {item.highlights.map((highlight) => (

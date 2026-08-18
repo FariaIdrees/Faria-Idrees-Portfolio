@@ -51,18 +51,18 @@ export function Philosophy() {
                 ease: EASE_OUT_EXPO,
                 delay: (index % 3) * 0.08,
               }}
-              className="group relative isolate bg-bg px-5 py-8 transition-colors duration-500 sm:px-6 lg:px-7 lg:py-10"
+              className="group relative isolate bg-bg px-5 py-8 transition-colors duration-300 sm:px-6 lg:px-7 lg:py-10"
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="absolute inset-0 -z-10 bg-gradient-to-b from-accent-soft to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
 
               <span className="font-mono text-xs text-fg-subtle/70">
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <h3 className="mt-3 text-lg font-semibold tracking-tight text-fg transition-transform duration-500 ease-out-expo group-hover:translate-x-1">
+              <h3 className="mt-3 text-lg font-semibold tracking-tight text-fg transition-transform duration-300 ease-out-expo group-hover:translate-x-1">
                 {principle.title}
               </h3>
 

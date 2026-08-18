@@ -68,7 +68,7 @@ export function Skills() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={VIEWPORT_EARLY}
-                variants={staggerContainer(0.05, groupIndex === 0 ? 0.1 : 0)}
+                variants={staggerContainer(0.03, groupIndex === 0 ? 0.06 : 0)}
                 className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-8"
               >
                 {group.skills.map((skill) => (

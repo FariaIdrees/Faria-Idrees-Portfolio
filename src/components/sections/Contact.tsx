@@ -60,7 +60,7 @@ export function Contact() {
       >
         <div
           aria-hidden="true"
-          className="animate-float-slow pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] max-w-[120%] -translate-x-1/2 rounded-full bg-[var(--glow-a)] blur-[110px]"
+          className="animate-float-slow pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] max-w-[120%] -translate-x-1/2 rounded-full bg-[var(--glow-a)] blur-[78px]"
         />
 
         <motion.p
@@ -86,7 +86,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_EARLY}
-          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.3 }}
+          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.16 }}
           className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-fg-muted sm:text-lg"
         >
           Have a project, idea or opportunity? Let&apos;s talk.
@@ -96,7 +96,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_EARLY}
-          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.42 }}
+          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.24 }}
           className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Button href={`mailto:${site.email}`} size="lg" magnetic className="w-full sm:w-auto">
@@ -129,7 +129,7 @@ export function Contact() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={VIEWPORT_EARLY}
-          transition={{ duration: DURATION.base, delay: 0.55 }}
+          transition={{ duration: DURATION.base, delay: 0.32 }}
           className="mt-6 flex items-center justify-center gap-2 text-sm text-fg-subtle"
         >
           <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
@@ -141,7 +141,7 @@ export function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_EARLY}
-          variants={staggerContainer(0.08, 0.5)}
+          variants={staggerContainer(0.05, 0.3)}
           className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {channels.map(({ label, value, href, icon: Icon }) => (
@@ -159,7 +159,7 @@ export function Contact() {
               <Magnetic strength={5} className="w-full">
                 <a
                   href={href}
-                  className="group flex w-full items-center gap-3 rounded-2xl border border-line bg-bg/50 p-4 text-left transition-all duration-500 ease-out-expo hover:-translate-y-1 hover:border-accent/50 hover:bg-bg/80"
+                  className="group flex w-full items-center gap-3 rounded-2xl border border-line bg-bg/50 p-4 text-left transition-all duration-300 ease-out-expo hover:-translate-y-1 hover:border-accent/50 hover:bg-bg/80"
                 >
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-surface/70 text-fg-muted transition-colors duration-300 group-hover:border-accent/50 group-hover:text-accent">
                     <Icon className="h-4.5 w-4.5" strokeWidth={1.75} aria-hidden="true" />

@@ -25,7 +25,7 @@ export function About() {
         <motion.div
           aria-hidden="true"
           style={{ y: reduced ? 0 : glowY }}
-          className="pointer-events-none absolute -left-40 top-10 -z-10 h-80 w-80 rounded-full bg-[var(--glow-a)] blur-[130px]"
+          className="pointer-events-none absolute -left-40 top-10 -z-10 h-80 w-80 rounded-full bg-[var(--glow-a)] blur-[90px]"
         />
 
         <SectionHeading
@@ -38,7 +38,7 @@ export function About() {
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
           {/* -------- narrative -------- */}
           <div className="lg:col-span-7">
-            <Stagger stagger={0.12} className="space-y-5">
+            <Stagger stagger={0.07} className="space-y-5">
               {aboutParagraphs.map((paragraph, index) => (
                 <StaggerItem
                   key={index}
@@ -50,7 +50,7 @@ export function About() {
               ))}
             </Stagger>
 
-            <Reveal direction="left" delay={0.25} className="mt-8">
+            <Reveal direction="left" delay={0.14} className="mt-8">
               <blockquote className="relative rounded-2xl border border-line bg-surface/50 p-5 sm:p-6">
                 <span
                   aria-hidden="true"
@@ -86,7 +86,7 @@ export function About() {
                 </span>
               </div>
 
-              <Stagger stagger={0.06} delayChildren={0.15} className="space-y-1">
+              <Stagger stagger={0.04} delayChildren={0.08} className="space-y-1">
                 {capabilities.map(({ label, icon: Icon }, index) => (
                   <StaggerItem
                     key={label}

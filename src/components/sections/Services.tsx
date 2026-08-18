@@ -12,7 +12,7 @@ export function Services() {
     <Section id="services" aria-labelledby="services-heading" className="relative">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-1/4 -z-10 h-72 bg-[var(--glow-b)] opacity-40 blur-[140px]"
+        className="pointer-events-none absolute inset-x-0 top-1/4 -z-10 h-72 bg-[var(--glow-b)] opacity-40 blur-[96px]"
       />
 
       <SectionHeading
@@ -27,7 +27,7 @@ export function Services() {
         initial="hidden"
         whileInView="visible"
         viewport={VIEWPORT_EARLY}
-        variants={staggerContainer(0.07, 0.08)}
+        variants={staggerContainer(0.045, 0.05)}
         className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
       >
         {services.map((service, index) => (

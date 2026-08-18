@@ -87,7 +87,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           transition: { duration: DURATION.slow, ease: EASE_OUT_EXPO },
         },
       }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface/50 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-line-strong hover:shadow-lift"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface/50 transition-all duration-300 ease-out-expo hover:-translate-y-1.5 hover:border-line-strong hover:shadow-lift"
     >
       {/* ---- media ---- */}
       <div className="relative aspect-16/10 overflow-hidden border-b border-line">
@@ -95,8 +95,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           initial={{ scale: 1.08, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: EASE_OUT_EXPO, delay: index * 0.06 }}
-          className="absolute inset-0 transition-transform duration-700 ease-out-expo group-hover:scale-[1.06]"
+          transition={{ duration: 0.55, ease: EASE_OUT_EXPO, delay: index * 0.04 }}
+          className="absolute inset-0 transition-transform duration-300 ease-out-expo group-hover:scale-[1.06]"
         >
           {project.image ? (
             <Image
@@ -114,7 +114,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         {/* Gradient wash that deepens on hover. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/10 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-95"
         />
 
         <span className="absolute left-4 top-4 rounded-full border border-line bg-bg/80 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-fg-muted backdrop-blur-sm">
@@ -131,11 +131,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       {/* ---- body ---- */}
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-base font-semibold tracking-tight text-fg transition-transform duration-500 ease-out-expo group-hover:translate-x-0.5">
+          <h3 className="text-base font-semibold tracking-tight text-fg transition-transform duration-300 ease-out-expo group-hover:translate-x-0.5">
             {project.title}
           </h3>
           <ArrowUpRight
-            className="mt-0.5 h-4 w-4 shrink-0 text-fg-subtle transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+            className="mt-0.5 h-4 w-4 shrink-0 text-fg-subtle transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
             strokeWidth={2}
             aria-hidden="true"
           />

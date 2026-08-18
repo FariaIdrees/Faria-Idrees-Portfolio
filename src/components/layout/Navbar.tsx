@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUpRight, Menu } from "lucide-react";
 import { navIds, navItems, site } from "@/content/site";
@@ -21,39 +21,15 @@ function scrollToSection(id: string) {
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection(navIds);
   const { scrollY } = useScroll();
-  /** True while a nav click is smooth-scrolling the page for the user. */
-  const navigating = useRef(false);
-  const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    setScrolled(latest > 24);
-
-    // A jump the user asked for shouldn't cost them the bar they just used.
-    if (navigating.current) {
-      setHidden(false);
-      if (settleTimer.current) clearTimeout(settleTimer.current);
-      settleTimer.current = setTimeout(() => {
-        navigating.current = false;
-      }, 160);
-      return;
-    }
-
-    // Only surrender the bar well below the fold, and never mid-menu.
-    if (menuOpen || latest < 420) {
-      setHidden(false);
-      return;
-    }
-    setHidden(latest > previous && latest - previous > 4);
-  });
+  // The bar never hides — it only gains a glass plate once the page moves.
+  useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 16));
 
   const handleNavigate = useCallback((id: string) => {
     setMenuOpen(false);
-    navigating.current = true;
     // Wait for the scroll lock to release before moving the page.
     requestAnimationFrame(() => requestAnimationFrame(() => scrollToSection(id)));
   }, []);
@@ -61,17 +37,21 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: hidden && !menuOpen ? -100 : 0, opacity: 1 }}
-        transition={{ duration: 0.55, ease: EASE_OUT_EXPO, delay: hidden ? 0 : 0.1 }}
+        initial={{ y: -72, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.38, ease: EASE_OUT_EXPO }}
         className="fixed inset-x-0 top-0 z-60"
       >
+        {/* Full-width glass plate, faded in only once the page has moved. */}
         <div
+          aria-hidden="true"
           className={cn(
-            "mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:h-18 lg:px-10",
-            "transition-[background-color,border-color,backdrop-filter] duration-500",
+            "absolute inset-0 -z-10 border-b transition-all duration-300",
+            scrolled ? "glass border-line opacity-100" : "border-transparent opacity-0",
           )}
-        >
+        />
+
+        <div className="relative mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-5 sm:px-8 lg:h-18 lg:px-10">
           <a
             href="#home"
             onClick={(event) => {
@@ -86,15 +66,11 @@ export function Navbar() {
             </span>
           </a>
 
+          {/* Absolutely centred so the pill sits on the page axis rather than
+              drifting between two side groups of unequal width. */}
           <nav
             aria-label="Primary"
-            className={cn(
-              "relative hidden items-center gap-1 rounded-full border p-1 lg:flex",
-              "transition-[background-color,border-color,box-shadow] duration-500",
-              scrolled
-                ? "glass border-line shadow-card"
-                : "border-transparent bg-transparent",
-            )}
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border border-line bg-surface/50 p-1 backdrop-blur-md lg:flex"
           >
             {navItems.map((entry) => {
               const isActive = active === entry.id;
@@ -108,14 +84,14 @@ export function Navbar() {
                   }}
                   aria-current={isActive ? "true" : undefined}
                   className={cn(
-                    "relative rounded-full px-4 py-2 text-sm transition-colors duration-300",
-                    isActive ? "text-fg" : "text-fg-muted hover:text-fg",
+                    "relative rounded-full px-3.5 py-1.5 text-[0.8125rem] font-medium transition-colors duration-200",
+                    isActive ? "text-accent" : "text-fg-muted hover:text-fg",
                   )}
                 >
                   {isActive ? (
                     <motion.span
                       layoutId="nav-active"
-                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      transition={{ type: "spring", stiffness: 420, damping: 34 }}
                       className="absolute inset-0 -z-10 rounded-full bg-accent-soft ring-1 ring-inset ring-[var(--accent-ring)]"
                     />
                   ) : null}
@@ -125,13 +101,13 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <ThemeToggle />
 
             <a
               href={site.resumeHref}
               className={cn(
-                "group hidden h-10 items-center gap-2 rounded-full border border-line bg-surface/60 px-4",
+                "group hidden h-10 items-center gap-1.5 rounded-full border border-line bg-surface/60 px-4",
                 "text-sm font-medium text-fg backdrop-blur-sm transition-colors duration-300",
                 "hover:border-accent hover:text-accent sm:inline-flex",
               )}
@@ -156,17 +132,6 @@ export function Navbar() {
             </button>
           </div>
         </div>
-
-        {/* Full-width glass plate, faded in only once the page has moved. */}
-        <div
-          aria-hidden="true"
-          className={cn(
-            "absolute inset-0 -z-10 border-b transition-all duration-500 lg:hidden",
-            scrolled
-              ? "glass border-line opacity-100"
-              : "border-transparent opacity-0",
-          )}
-        />
       </motion.header>
 
       <MobileMenu

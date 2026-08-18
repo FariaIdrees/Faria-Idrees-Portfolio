@@ -9,22 +9,22 @@ export const EASE_OUT_EXPO = [0.22, 1, 0.36, 1] as const;
 export const EASE_IN_OUT = [0.65, 0, 0.35, 1] as const;
 
 export const DURATION = {
-  fast: 0.28,
-  base: 0.55,
-  slow: 0.8,
+  fast: 0.18,
+  base: 0.34,
+  slow: 0.5,
 } as const;
 
 export const SPRING: Transition = {
   type: "spring",
-  stiffness: 260,
-  damping: 30,
+  stiffness: 360,
+  damping: 32,
   mass: 0.9,
 };
 
 export const SOFT_SPRING: Transition = {
   type: "spring",
-  stiffness: 140,
-  damping: 22,
+  stiffness: 210,
+  damping: 24,
   mass: 0.7,
 };
 
@@ -41,7 +41,7 @@ export type RevealDirection =
   | "scale"
   | "blur";
 
-const OFFSET = 28;
+const OFFSET = 20;
 
 export function revealVariants(
   direction: RevealDirection = "up",

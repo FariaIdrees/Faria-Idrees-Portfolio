@@ -25,7 +25,7 @@ export function Projects() {
         initial="hidden"
         whileInView="visible"
         viewport={VIEWPORT_EARLY}
-        variants={staggerContainer(0.1, 0.1)}
+        variants={staggerContainer(0.06, 0.06)}
         className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((project, index) => (
@@ -34,7 +34,7 @@ export function Projects() {
       </motion.div>
 
       {hasPlaceholders ? (
-        <Reveal delay={0.1} className="mt-6">
+        <Reveal delay={0.06} className="mt-6">
           <p className="text-xs text-fg-subtle">
             Cards marked <span className="text-fg-muted">Placeholder</span> are
             structural slots — replace them in{" "}

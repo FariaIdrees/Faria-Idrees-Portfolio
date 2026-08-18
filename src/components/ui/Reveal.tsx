@@ -53,7 +53,7 @@ type StaggerProps = HTMLMotionProps<"div"> & {
 
 /** Parent that releases `StaggerItem` children in sequence. */
 export function Stagger({
-  stagger = 0.08,
+  stagger = 0.05,
   delayChildren = 0,
   early = false,
   children,

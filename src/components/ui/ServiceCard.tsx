@@ -24,7 +24,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         <div className="flex items-start justify-between">
           <span
             className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-bg/70 text-fg-muted
-                       transition-all duration-500 ease-out-expo
+                       transition-all duration-300 ease-out-expo
                        group-hover:-translate-y-0.5 group-hover:border-accent/50 group-hover:text-accent"
           >
             <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />
@@ -44,7 +44,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
         {/* Hairline that draws in from the left on hover. */}
         <span
           aria-hidden="true"
-          className="mt-5 block h-px w-0 bg-gradient-to-r from-accent to-transparent transition-[width] duration-700 ease-out-expo group-hover:w-full"
+          className="mt-5 block h-px w-0 bg-gradient-to-r from-accent to-transparent transition-[width] duration-300 ease-out-expo group-hover:w-full"
         />
       </GlowCard>
     </motion.div>

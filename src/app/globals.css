@@ -162,8 +162,8 @@
 
   .glass {
     background-color: var(--bg-veil);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
   }
 
   /* Hairline gradient border for premium cards, drawn with a mask so it
@@ -183,19 +183,6 @@
   }
 }
 
-/* Theme swap: transitions are enabled only for the duration of the toggle so
-   they never tax scrolling or hover interactions. */
-.theme-transition,
-.theme-transition *,
-.theme-transition *::before,
-.theme-transition *::after {
-  transition:
-    background-color 380ms var(--ease-out-expo),
-    border-color 380ms var(--ease-out-expo),
-    color 380ms var(--ease-out-expo),
-    fill 380ms var(--ease-out-expo) !important;
-  transition-delay: 0ms !important;
-}
 
 @keyframes float-slow {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); }

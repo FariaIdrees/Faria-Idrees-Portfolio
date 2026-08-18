@@ -214,7 +214,7 @@ export function BrowserMockup({ className }: { className?: string }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
+                transition={{ duration: 0.25 }}
                 className="h-full"
               >
                 {view.name === "Storefront" ? (

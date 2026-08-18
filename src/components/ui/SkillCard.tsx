@@ -18,7 +18,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         <div className="flex items-start gap-3.5">
           <span
             className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-bg/70 p-2 text-fg-muted
-                       transition-all duration-500 ease-out-expo
+                       transition-all duration-300 ease-out-expo
                        group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:border-line-strong
                        group-hover:text-[var(--tech,var(--accent))]"
           >

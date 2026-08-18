@@ -50,7 +50,7 @@ export function SectionHeading({
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={VIEWPORT_EARLY}
-          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 0.1 }}
+          transition={{ duration: DURATION.slow, ease: EASE_OUT_EXPO, delay: 0.05 }}
           className="h-px w-8 origin-left bg-accent"
           aria-hidden="true"
         />
@@ -76,7 +76,7 @@ export function SectionHeading({
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_EARLY}
-          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.32 }}
+          transition={{ duration: DURATION.base, ease: EASE_OUT_EXPO, delay: 0.18 }}
           className={cn(
             "max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg",
             centered && "mx-auto",

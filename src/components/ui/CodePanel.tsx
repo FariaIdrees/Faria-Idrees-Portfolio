@@ -61,7 +61,7 @@ const LINES: Token[][] = [
 
 const line = {
   hidden: { opacity: 0, x: -12 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.45, ease: EASE_OUT_EXPO } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.28, ease: EASE_OUT_EXPO } },
 };
 
 /**
@@ -98,7 +98,7 @@ export function CodePanel({ className }: { className?: string }) {
         animate="visible"
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.09, delayChildren: 0.85 } },
+          visible: { transition: { staggerChildren: 0.05, delayChildren: 0.4 } },
         }}
         className="overflow-x-auto px-4 py-5 font-mono text-[0.72rem] leading-[1.85] sm:px-6 sm:text-[0.8rem]"
       >

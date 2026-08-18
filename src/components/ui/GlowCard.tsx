@@ -49,14 +49,14 @@ export function GlowCard({
       style={{ "--glow-radius": `${radius}px` } as React.CSSProperties}
       className={cn(
         "group relative isolate overflow-hidden rounded-2xl border border-line bg-surface/70",
-        "transition-[transform,border-color,box-shadow] duration-500 ease-out-expo",
+        "transition-[transform,border-color,box-shadow] duration-300 ease-out-expo",
         "hover:-translate-y-1 hover:border-line-strong hover:shadow-lift",
         className,
       )}
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[var(--glow-opacity,0)] transition-opacity duration-500"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[var(--glow-opacity,0)] transition-opacity duration-300"
         style={{
           background:
             "radial-gradient(var(--glow-radius) circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 70%)",
