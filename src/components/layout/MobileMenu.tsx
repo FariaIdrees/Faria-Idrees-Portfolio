@@ -107,7 +107,7 @@ export function MobileMenu({ open, activeId, onClose, onNavigate }: MobileMenuPr
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed inset-0 z-[65] flex flex-col bg-bg/95 backdrop-blur-xl lg:hidden"
+          className="fixed inset-0 z-80 flex flex-col bg-bg/95 backdrop-blur-xl lg:hidden"
         >
           <div className="pointer-events-none absolute inset-0 bg-grid-sm opacity-60 mask-fade-b" />
 
@@ -150,7 +150,10 @@ export function MobileMenu({ open, activeId, onClose, onNavigate }: MobileMenuPr
                 )}
               >
                 <span className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs text-fg-subtle">
+                  <span
+                    aria-hidden="true"
+                    className="font-mono text-xs text-fg-subtle"
+                  >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {entry.label}

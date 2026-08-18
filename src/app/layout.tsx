@@ -125,7 +125,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AppProviders>
             <a
               href="#home"
-              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-accent-fg"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-110 focus:rounded-full focus:bg-accent focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-accent-fg"
             >
               Skip to content
             </a>

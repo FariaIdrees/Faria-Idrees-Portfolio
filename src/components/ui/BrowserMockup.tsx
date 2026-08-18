@@ -152,7 +152,7 @@ export function BrowserMockup({ className }: { className?: string }) {
                 onClick={() => setIndex(entryIndex)}
                 aria-label={`Preview the ${entry.name} view`}
                 aria-pressed={entryIndex === index}
-                className="grid h-4 w-4 place-items-center rounded-full"
+                className="-m-1 grid h-6 w-6 place-items-center rounded-full"
               >
                 <span
                   className={cn(

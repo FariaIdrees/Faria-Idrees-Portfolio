@@ -64,7 +64,7 @@ export function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: hidden && !menuOpen ? -100 : 0, opacity: 1 }}
         transition={{ duration: 0.55, ease: EASE_OUT_EXPO, delay: hidden ? 0 : 0.1 }}
-        className="fixed inset-x-0 top-0 z-[60]"
+        className="fixed inset-x-0 top-0 z-60"
       >
         <div
           className={cn(

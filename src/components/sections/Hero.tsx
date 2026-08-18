@@ -236,7 +236,7 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.6 }}
         aria-label="Scroll to the About section"
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs text-fg-subtle transition-colors hover:text-accent lg:inline-flex"
+        className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 items-center gap-2 py-2 text-xs text-fg-subtle transition-colors hover:text-accent lg:inline-flex"
       >
         <span className="font-mono uppercase tracking-[0.2em]">Scroll</span>
         <motion.span

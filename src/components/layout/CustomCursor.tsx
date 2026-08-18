@@ -63,7 +63,7 @@ export function CustomCursor() {
         style={{ x, y }}
         animate={{ opacity: visible ? 1 : 0, scale: hovering ? 0 : 1 }}
         transition={{ duration: 0.2 }}
-        className="pointer-events-none fixed left-0 top-0 z-[100] -ml-[3px] -mt-[3px] h-1.5 w-1.5 rounded-full bg-accent"
+        className="pointer-events-none fixed left-0 top-0 z-100 -ml-[3px] -mt-[3px] h-1.5 w-1.5 rounded-full bg-accent"
       />
       <motion.div
         aria-hidden="true"
@@ -73,7 +73,7 @@ export function CustomCursor() {
           scale: hovering ? 1.6 : 1,
         }}
         transition={{ type: "spring", stiffness: 260, damping: 22 }}
-        className="pointer-events-none fixed left-0 top-0 z-[100] -ml-4 -mt-4 h-8 w-8 rounded-full border border-accent/60 bg-accent/5 backdrop-blur-[1px]"
+        className="pointer-events-none fixed left-0 top-0 z-100 -ml-4 -mt-4 h-8 w-8 rounded-full border border-accent/60 bg-accent/5 backdrop-blur-[1px]"
       />
     </>
   );

@@ -170,7 +170,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               target="_blank"
               rel="noreferrer noopener"
               aria-label={`${project.title} — open the live site`}
-              className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-accent transition-colors duration-300 hover:text-accent-hover"
+              className="group/link -my-1.5 inline-flex items-center gap-1.5 py-2.5 text-xs font-medium text-accent transition-colors duration-300 hover:text-accent-hover"
             >
               Visit live site
               <ArrowUpRight
