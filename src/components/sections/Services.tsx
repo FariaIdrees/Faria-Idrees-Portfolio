@@ -19,7 +19,7 @@ export function Services() {
         id="services-heading"
         eyebrow="Services"
         title="What I build."
-        description="The kinds of systems I take on end to end — from the first schema to the deployed product."
+        description="The kinds of work I take on — from a single responsive page to a full MERN application, deployed and live."
         accentWords={["build."]}
       />
 

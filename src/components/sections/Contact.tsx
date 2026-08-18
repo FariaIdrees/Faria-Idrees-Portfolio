@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { site } from "@/content/site";
 import { DURATION, EASE_OUT_EXPO, VIEWPORT_EARLY, staggerContainer } from "@/lib/motion";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { Section } from "@/components/ui/Section";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { isPlaceholderLink } from "@/lib/utils";
 
 const channels = [
   {
@@ -16,6 +17,12 @@ const channels = [
     value: site.email,
     href: `mailto:${site.email}`,
     icon: Mail,
+  },
+  {
+    label: "Phone",
+    value: site.phone,
+    href: `tel:${site.phone.replace(/s/g, "")}`,
+    icon: Phone,
   },
   {
     label: "LinkedIn",
@@ -33,8 +40,8 @@ const channels = [
 
 const placeholdersRemain =
   site.email.endsWith("example.com") ||
-  site.socials.github.href === "#" ||
-  site.socials.linkedin.href === "#";
+  isPlaceholderLink(site.socials.github.href) ||
+  isPlaceholderLink(site.socials.linkedin.href);
 
 export function Contact() {
   return (
@@ -118,13 +125,24 @@ export function Contact() {
           </Button>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={VIEWPORT_EARLY}
+          transition={{ duration: DURATION.base, delay: 0.55 }}
+          className="mt-6 flex items-center justify-center gap-2 text-sm text-fg-subtle"
+        >
+          <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+          {site.location}
+        </motion.p>
+
         {/* ---- channel list ---- */}
         <motion.ul
           initial="hidden"
           whileInView="visible"
           viewport={VIEWPORT_EARLY}
           variants={staggerContainer(0.08, 0.5)}
-          className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3"
+          className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4"
         >
           {channels.map(({ label, value, href, icon: Icon }) => (
             <motion.li

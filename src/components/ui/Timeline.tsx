@@ -2,8 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useSpring } from "motion/react";
-import { Briefcase, Check } from "lucide-react";
-import type { ExperienceItem } from "@/content/experience";
+import { Check } from "lucide-react";
+import type { TimelineItem } from "@/content/education";
 import { DURATION, EASE_OUT_EXPO, VIEWPORT_EARLY, staggerContainer } from "@/lib/motion";
 import { TechBadge } from "./TechBadge";
 import { cn } from "@/lib/utils";
@@ -40,10 +40,11 @@ export function TimelineTrack({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** A single role: node, header card, then the responsibilities beneath it. */
-export function TimelineEntry({ item }: { item: ExperienceItem }) {
+/** A single entry: node, header card, then its details beneath. */
+export function TimelineEntry({ item }: { item: TimelineItem }) {
   const ref = useRef<HTMLDivElement>(null);
   const active = useInView(ref, { amount: 0.35, margin: "-20% 0px -40% 0px" });
+  const Icon = item.icon;
 
   return (
     <div ref={ref} className="relative pl-14 sm:pl-[4.5rem]">
@@ -59,7 +60,7 @@ export function TimelineEntry({ item }: { item: ExperienceItem }) {
           active ? "border-accent text-accent" : "border-line text-fg-subtle",
         )}
       >
-        <Briefcase className="h-4 w-4 sm:h-4.5 sm:w-4.5" strokeWidth={1.75} />
+        <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" strokeWidth={1.75} />
         <span
           className={cn(
             "absolute inset-0 rounded-full transition-opacity duration-700",
@@ -81,7 +82,7 @@ export function TimelineEntry({ item }: { item: ExperienceItem }) {
       >
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
           <h3 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
-            {item.role}
+            {item.title}
           </h3>
           {item.period ? (
             <span className="font-mono text-xs uppercase tracking-[0.16em] text-fg-subtle">
@@ -91,7 +92,7 @@ export function TimelineEntry({ item }: { item: ExperienceItem }) {
         </div>
 
         <p className="mt-1 text-sm font-medium text-accent sm:text-base">
-          {item.company}
+          {item.organisation}
           {item.location ? (
             <span className="text-fg-subtle"> · {item.location}</span>
           ) : null}

@@ -3,9 +3,9 @@ import { site } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${site.name} — Software Engineer & Full-Stack Developer`;
+export const alt = `${site.name} — ${site.role}`;
 
-const STACK = ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "Docker"];
+const STACK = ["React", "Next.js", "Node.js", "Express", "MongoDB"];
 
 /** Social share card, rendered at build time from the same content source. */
 export default function OpenGraphImage() {
@@ -74,7 +74,7 @@ export default function OpenGraphImage() {
               letterSpacing: "-0.01em",
             }}
           >
-            Software Engineer &amp; Full-Stack Developer
+            {site.role}
           </div>
         </div>
 

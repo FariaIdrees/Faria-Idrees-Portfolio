@@ -24,13 +24,13 @@ const LINES: Token[][] = [
   [
     { text: "  name", tone: "prop" },
     { text: ": ", tone: "punct" },
-    { text: '"Soban Amjad"', tone: "string" },
+    { text: '"Faria Idrees"', tone: "string" },
     { text: ",", tone: "punct" },
   ],
   [
     { text: "  role", tone: "prop" },
     { text: ": ", tone: "punct" },
-    { text: '"Software Engineer"', tone: "string" },
+    { text: '"Web Developer"', tone: "string" },
     { text: ",", tone: "punct" },
   ],
   [
@@ -42,13 +42,13 @@ const LINES: Token[][] = [
     { text: ", ", tone: "punct" },
     { text: '"Node.js"', tone: "string" },
     { text: ", ", tone: "punct" },
-    { text: '"TypeScript"', tone: "string" },
+    { text: '"MongoDB"', tone: "string" },
     { text: "],", tone: "punct" },
   ],
   [
     { text: "  focus", tone: "prop" },
     { text: ": ", tone: "punct" },
-    { text: '"Building scalable products"', tone: "string" },
+    { text: '"Building full-stack web apps"', tone: "string" },
     { text: ",", tone: "punct" },
   ],
   [{ text: "};", tone: "punct" }],
@@ -80,10 +80,10 @@ export function CodePanel({ className }: { className?: string }) {
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
         </span>
         <span className="ml-2 font-mono text-[0.7rem] tracking-tight text-fg-subtle">
-          developer.ts
+          developer.js
         </span>
         <span className="ml-auto font-mono text-[0.65rem] uppercase tracking-[0.16em] text-fg-subtle">
-          TypeScript
+          JavaScript
         </span>
       </div>
 

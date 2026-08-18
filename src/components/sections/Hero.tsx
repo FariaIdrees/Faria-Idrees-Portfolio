@@ -111,7 +111,7 @@ export function Hero() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                 </span>
-                Software Engineer at Devsarch
+                Open to junior developer roles
               </span>
             </motion.div>
 
@@ -123,11 +123,11 @@ export function Hero() {
               variants={enter}
               className="mt-4 text-lg font-medium tracking-tight text-fg-muted sm:text-xl lg:text-2xl"
             >
-              Software Engineer{" "}
+              Web Developer{" "}
               <span className="text-fg-subtle" aria-hidden="true">
                 &amp;
               </span>{" "}
-              <span className="text-gradient">Full-Stack Developer</span>
+              <span className="text-gradient">MERN Stack Developer</span>
             </motion.p>
 
             <motion.p

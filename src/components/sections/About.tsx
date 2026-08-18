@@ -31,8 +31,8 @@ export function About() {
         <SectionHeading
           id="about-heading"
           eyebrow="About"
-          title="Engineering across the whole stack, not just the surface."
-          accentWords={["stack,"]}
+          title="A developer who finishes what she starts."
+          accentWords={["finishes"]}
         />
 
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
@@ -57,11 +57,12 @@ export function About() {
                   className="absolute left-0 top-5 h-[calc(100%-2.5rem)] w-px bg-gradient-to-b from-accent to-transparent"
                 />
                 <p className="text-[0.95rem] leading-relaxed text-fg sm:text-base">
-                  &ldquo;Write the version you can explain in a sentence. If it
-                  needs a paragraph, the boundaries are in the wrong place.&rdquo;
+                  &ldquo;A project isn&rsquo;t done when it works on my laptop.
+                  It&rsquo;s done when it&rsquo;s deployed, responsive and
+                  someone else can open the link.&rdquo;
                 </p>
                 <footer className="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-fg-subtle">
-                  How I approach architecture
+                  How I approach a build
                 </footer>
               </blockquote>
             </Reveal>

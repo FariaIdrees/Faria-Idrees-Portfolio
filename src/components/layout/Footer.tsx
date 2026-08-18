@@ -35,7 +35,8 @@ export function Footer() {
             </p>
             <p className="mt-1 text-sm text-fg-muted">{site.role}</p>
             <p className="mt-4 text-sm leading-relaxed text-fg-subtle">
-              Open to full-stack engineering roles and freelance work.
+              Actively seeking a junior developer role. Based in Lahore,
+              Pakistan and open to remote work.
             </p>
           </div>
 
@@ -83,7 +84,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-line pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-fg-subtle">
-            &copy; {year} {site.name}. Built with Next.js, TypeScript and Tailwind CSS.
+            &copy; {year} {site.name}. Built with Next.js and Tailwind CSS.
           </p>
           <a
             href="#home"

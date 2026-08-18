@@ -11,10 +11,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechBadge } from "@/components/ui/TechBadge";
-import { cn } from "@/lib/utils";
+import { cn, isPlaceholderLink } from "@/lib/utils";
 
 const { liveHref, repoHref } = featuredProject;
-const linksPending = liveHref === "#" && repoHref === "#";
+const hasLive = !isPlaceholderLink(liveHref);
+const hasRepo = !isPlaceholderLink(repoHref);
 
 export function FeaturedProject() {
   return (
@@ -22,9 +23,9 @@ export function FeaturedProject() {
       <SectionHeading
         id="featured-heading"
         eyebrow="Featured Project"
-        title="A marketplace where four different businesses meet."
-        description="The platform I spend most of my time in — every layer from the schema up to the four portals that sit on it."
-        accentWords={["meet."]}
+        title="A full-stack store, built end to end."
+        description="My most complete MERN project — React on the front, Express and Node.js serving the API, MongoDB holding the catalogue."
+        accentWords={["end."]}
       />
 
       {/* ---------------- overview ---------------- */}
@@ -45,29 +46,31 @@ export function FeaturedProject() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href={liveHref} external={liveHref !== "#"} magnetic>
-                Live Demo
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
-              </Button>
-              <Button
-                href={repoHref}
-                external={repoHref !== "#"}
-                variant="secondary"
-                magnetic
-              >
-                <GithubIcon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
-                GitHub
-              </Button>
+              {hasLive ? (
+                <Button href={liveHref} external magnetic>
+                  Visit Live Site
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />
+                </Button>
+              ) : null}
+              {hasRepo ? (
+                <Button href={repoHref} external variant="secondary" magnetic>
+                  <GithubIcon className="h-4 w-4" aria-hidden="true" />
+                  GitHub
+                </Button>
+              ) : null}
             </div>
 
-            {linksPending ? (
+            {!hasRepo ? (
               <p className="mt-3 text-xs text-fg-subtle">
-                Demo and repository links are placeholders until the public URLs
-                are added.
+                Source repository link will be added here — set{" "}
+                <code className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[0.7rem] text-fg-muted">
+                  repoHref
+                </code>{" "}
+                in the project data.
               </p>
             ) : null}
           </Reveal>
@@ -133,8 +136,8 @@ export function FeaturedProject() {
             Architecture
           </h4>
           <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-fg-muted">
-            One codebase, four audiences. Every request crosses the same typed,
-            authorised boundary before it reaches a domain service.
+            Four layers, one flow: the React storefront asks the Express API for
+            data, the API reads MongoDB, and the whole thing runs on Vercel.
           </p>
         </Reveal>
 

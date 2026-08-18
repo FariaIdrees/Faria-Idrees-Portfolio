@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const title = `${site.name} — Software Engineer & Full-Stack Developer`;
+const title = `${site.name} — ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   keywords: [
-    "Soban Amjad",
-    "Software Engineer",
-    "Full-Stack Developer",
-    "Next.js Developer",
-    "TypeScript Developer",
-    "Node.js",
-    "NestJS",
-    "PostgreSQL",
+    "Faria Idrees",
+    "Web Developer",
+    "MERN Stack Developer",
     "React Developer",
-    "Portfolio",
+    "Next.js Developer",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Frontend Developer Lahore",
+    "Junior Developer Portfolio",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -82,19 +82,27 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
-  jobTitle: "Software Engineer & Full-Stack Developer",
+  jobTitle: site.role,
+  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+  email: `mailto:${site.email}`,
+  sameAs: [site.socials.github.href, site.socials.linkedin.href],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "KIPS College Kasur (affiliated with GCUF)",
+  },
   description: site.description,
   url: site.siteUrl,
   knowsAbout: [
-    "Full-Stack Development",
-    "TypeScript",
+    "Web Development",
+    "React.js",
     "Next.js",
     "Node.js",
-    "NestJS",
-    "PostgreSQL",
-    "REST API Design",
-    "Authentication and RBAC",
-    "Stripe Integration",
+    "Express.js",
+    "MongoDB",
+    "RESTful API Design",
+    "API Integration",
+    "Tailwind CSS",
+    "Responsive Web Design",
   ],
 };
 

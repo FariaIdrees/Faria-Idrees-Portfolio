@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUpRight, Menu } from "lucide-react";
 import { navIds, navItems, site } from "@/content/site";
@@ -25,10 +25,24 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const active = useActiveSection(navIds);
   const { scrollY } = useScroll();
+  /** True while a nav click is smooth-scrolling the page for the user. */
+  const navigating = useRef(false);
+  const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     setScrolled(latest > 24);
+
+    // A jump the user asked for shouldn't cost them the bar they just used.
+    if (navigating.current) {
+      setHidden(false);
+      if (settleTimer.current) clearTimeout(settleTimer.current);
+      settleTimer.current = setTimeout(() => {
+        navigating.current = false;
+      }, 160);
+      return;
+    }
+
     // Only surrender the bar well below the fold, and never mid-menu.
     if (menuOpen || latest < 420) {
       setHidden(false);
@@ -39,6 +53,7 @@ export function Navbar() {
 
   const handleNavigate = useCallback((id: string) => {
     setMenuOpen(false);
+    navigating.current = true;
     // Wait for the scroll lock to release before moving the page.
     requestAnimationFrame(() => requestAnimationFrame(() => scrollToSection(id)));
   }, []);

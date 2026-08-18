@@ -2,19 +2,26 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import type { LucideIcon } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./BrandIcons";
 import type { Project } from "@/content/projects";
 import { DURATION, EASE_OUT_EXPO } from "@/lib/motion";
 import { TechBadge } from "./TechBadge";
-import { cn } from "@/lib/utils";
+import { cn, isPlaceholderLink } from "@/lib/utils";
 
 /**
  * Stand-in artwork for projects without a screenshot yet — an abstract
  * interface sketch rather than a grey box, so the grid still looks finished.
  * Drop a real `image` into the project data and this is replaced automatically.
  */
-function GeneratedPreview({ seed }: { seed: number }) {
+function GeneratedPreview({
+  seed,
+  icon: Icon,
+}: {
+  seed: number;
+  icon?: LucideIcon;
+}) {
   const rows = [70, 46, 58, 34];
 
   return (
@@ -29,6 +36,13 @@ function GeneratedPreview({ seed }: { seed: number }) {
           <span className="h-2 w-2 rounded-full bg-line-strong" />
           <span className="h-2 w-2 rounded-full bg-line-strong" />
           <span className="h-2 w-2 rounded-full bg-line-strong" />
+          {Icon ? (
+            <Icon
+              className="ml-auto h-4 w-4 text-accent/70"
+              strokeWidth={1.5}
+              aria-hidden="true"
+            />
+          ) : null}
         </div>
         <div className="mt-2 flex gap-2">
           {[0, 1, 2].map((tile) => (
@@ -60,8 +74,8 @@ function GeneratedPreview({ seed }: { seed: number }) {
 }
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const hasLive = project.liveHref !== "#";
-  const hasRepo = project.repoHref !== "#";
+  const hasLive = !isPlaceholderLink(project.liveHref);
+  const hasRepo = !isPlaceholderLink(project.repoHref);
 
   return (
     <motion.article
@@ -93,7 +107,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               className="object-cover"
             />
           ) : (
-            <GeneratedPreview seed={index} />
+            <GeneratedPreview seed={index} icon={project.icon} />
           )}
         </motion.div>
 
@@ -138,26 +152,34 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </div>
 
         <div className="mt-5 flex items-center gap-4 border-t border-line pt-4">
-          <a
-            href={project.repoHref}
-            aria-label={`${project.title} — source code${hasRepo ? "" : " (link not available yet)"}`}
-            className="inline-flex items-center gap-1.5 text-xs text-fg-muted transition-colors duration-300 hover:text-accent"
-          >
-            <GithubIcon className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden="true" />
-            Code
-          </a>
-          <a
-            href={project.liveHref}
-            aria-label={`${project.title} — live demo${hasLive ? "" : " (link not available yet)"}`}
-            className="group/link inline-flex items-center gap-1.5 text-xs text-fg-muted transition-colors duration-300 hover:text-accent"
-          >
-            Live demo
-            <ArrowUpRight
-              className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-              strokeWidth={2}
-              aria-hidden="true"
-            />
-          </a>
+          {hasRepo ? (
+            <a
+              href={project.repoHref}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${project.title} — source code`}
+              className="inline-flex items-center gap-1.5 text-xs text-fg-muted transition-colors duration-300 hover:text-accent"
+            >
+              <GithubIcon className="h-3.5 w-3.5" aria-hidden="true" />
+              Code
+            </a>
+          ) : null}
+          {hasLive ? (
+            <a
+              href={project.liveHref}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${project.title} — open the live site`}
+              className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-accent transition-colors duration-300 hover:text-accent-hover"
+            >
+              Visit live site
+              <ArrowUpRight
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                strokeWidth={2}
+                aria-hidden="true"
+              />
+            </a>
+          ) : null}
         </div>
       </div>
     </motion.article>

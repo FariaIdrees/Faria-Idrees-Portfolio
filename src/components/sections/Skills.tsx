@@ -18,9 +18,9 @@ export function Skills() {
       <SectionHeading
         id="skills-heading"
         eyebrow="Skills"
-        title="The stack I build with every day."
-        description="Grouped by where they sit in the system — from the interface down to the infrastructure it runs on."
-        accentWords={["day."]}
+        title="The stack I build with."
+        description="Grouped by where they sit in a project — from the interface a visitor sees down to the database behind it."
+        accentWords={["with."]}
       />
 
       <div className="mt-14 space-y-14 sm:mt-16 lg:space-y-16">

@@ -1,6 +1,6 @@
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
-import { Experience } from "@/components/sections/Experience";
+import { Education } from "@/components/sections/Education";
 import { FeaturedProject } from "@/components/sections/FeaturedProject";
 import { Hero } from "@/components/sections/Hero";
 import { Philosophy } from "@/components/sections/Philosophy";
@@ -14,7 +14,7 @@ export default function HomePage() {
       <Hero />
       <About />
       <Skills />
-      <Experience />
+      <Education />
       <FeaturedProject />
       <Projects />
       <Services />

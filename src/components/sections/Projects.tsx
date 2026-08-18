@@ -16,9 +16,9 @@ export function Projects() {
       <SectionHeading
         id="other-projects-heading"
         eyebrow="More Work"
-        title="Other things I build."
-        description="Smaller pieces and starting points — the same engineering standards at a smaller scale."
-        accentWords={["build."]}
+        title="More projects, all of them live."
+        description="Every project here is built, deployed and reachable by a link — click through and try them."
+        accentWords={["live."]}
       />
 
       <motion.div
@@ -37,11 +37,11 @@ export function Projects() {
         <Reveal delay={0.1} className="mt-6">
           <p className="text-xs text-fg-subtle">
             Cards marked <span className="text-fg-muted">Placeholder</span> are
-            structural slots — replace the entries in{" "}
+            structural slots — replace them in{" "}
             <code className="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[0.7rem] text-fg-muted">
               src/content/projects.ts
             </code>{" "}
-            with real projects and the grid updates itself.
+            and the grid updates itself.
           </p>
         </Reveal>
       ) : null}
